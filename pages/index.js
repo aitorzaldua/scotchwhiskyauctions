@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { useEffect, useState } from "react";
+import { connectWallet } from "./utils/interact";
+import HelloWord from './HelloWord';
+
 
 export default function Home() {
   return (
@@ -10,9 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-3xl font-bold underline text-blue-600">
-      Hello world!
-    </h1>
+     <HelloWord />
     </div>
   )
 }
