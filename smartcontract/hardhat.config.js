@@ -1,6 +1,30 @@
-require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-waffle");
+require ("@nomiclabs/hardhat-etherscan");
+const dotenv = require("dotenv");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+dotenv.config();
+
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
+  const accounts = await hre.ethers.getSigners();
+
+  for (const account of accounts) {
+    console.log(account.address);
+  }
+});
+
+
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
 module.exports = {
-  solidity: "0.8.17",
+  solidity: "0.8.4",
+  networks: {
+    mumbai: {
+      url: process.env.POLYGON_MUMBAY_NODE,
+      accounts: [process.env.PRIVATE_KEY]
+    },
+  },
+  etherscan: {
+    apiKey: 'zm0ZjRKqmzuLpUA3qpEAhP_PjOZd7ph8'
+  }
 };
