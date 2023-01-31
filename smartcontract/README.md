@@ -2,12 +2,18 @@
 
 Monthly Online Whisky Auction - Buy, Value Or Sell Your Rare and Collectible Whisky
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## DAO Members Categories:
 
-## Members Categories:
+1.- Admin: The deployer. Neccesary to start the DAO
 
-1.- Admin
-2.- Founding Member
-3.- Member
-4.- Requestor
-5.- User
+2.- Founding Member: First members with privileges till there is enough members. The
+board to aprove new members.
+
+3.- Member: DAO members.
+
+4.- Requestor: Before aprobal by members, the potencial member has to request it.
+
+5.- User: If a person don´t want to be a DAO member, just shell ot buy bottles.
+
+6.- Courier: For couriers.
+
