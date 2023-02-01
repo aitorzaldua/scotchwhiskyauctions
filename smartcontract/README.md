@@ -4,7 +4,7 @@ Monthly Online Whisky Auction - Buy, Value Or Sell Your Rare and Collectible Whi
 
 ## DAO Members Categories:
 
-1.- Admin: The deployer. Neccesary to start the DAO
+1.- Admin: The deployer. Neccesary to start the DAO.
 
 2.- Founding Member: First members with privileges till there is enough members. The
 board to aprove new members.
