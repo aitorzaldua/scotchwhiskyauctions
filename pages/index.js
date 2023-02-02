@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import NavBar from './NavBar';
 import Welcome from './Welcome';
 
+import HelloWorld from './HelloWorld';
 
 export default function Home() {
   return (
@@ -17,7 +18,6 @@ export default function Home() {
           <NavBar />
           <Welcome />
         </div>
-       
       </div>
 
     </div>

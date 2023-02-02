@@ -19,12 +19,12 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    mumbai: {
-      url: process.env.POLYGON_MUMBAY_NODE,
+    goerli: {
+      url: process.env.GOERLI_API_URL,
       accounts: [process.env.PRIVATE_KEY]
     },
   },
   etherscan: {
-    apiKey: 'zm0ZjRKqmzuLpUA3qpEAhP_PjOZd7ph8'
+    apiKey: [process.env.PRIVATE_KEY]
   }
 };
