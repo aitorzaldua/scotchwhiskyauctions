@@ -9,6 +9,7 @@ import {
   getCurrentWalletConnected,
 } from "./utils/interact.jsx";
 
+
 export default function HelloWorld() {
   //State variables
   const [walletAddress, setWallet] = useState("");
@@ -18,11 +19,15 @@ export default function HelloWorld() {
 
   //called only once
   useEffect(() => {
-    //TODO: implement
+    async function fetchMessage() {
+      const message = await loadCurrentMessage();
+      setMessage(message);
+    }
+    fetchMessage();
   }, []);
 
   function addSmartContractListener() {
-    //TODO: implement
+    
   }
 
   function addWalletListener() {
@@ -36,7 +41,7 @@ export default function HelloWorld() {
   };
 
   const onUpdatePressed = async () => {
-    //TODO: implement
+    console.log(JSON.stringify(contract.abi));
   };
 
   //the UI of our component
