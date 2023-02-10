@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: MIT
 // @audit-issue - Don´t use ^ in mainnet.
 // Last update: 20230210
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.7;
 
 import "hardhat/console.sol";
 
@@ -23,6 +23,9 @@ import "./DaoMembers.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Voting is DaoMembers {
+    using Counters for Counters.Counter;
+
+    Counters.Counter public voteId;
 
 
     enum Status {
@@ -37,20 +40,34 @@ contract Voting is DaoMembers {
         pending
     }
 
-    struct Ballot {
+    struct vote {
         string question;
         address createdBy;
-        Counters.Counter votes;
         uint tokenBalance;
         Status status;
+        Counters.Counter countVotes;
         Outcome outcome;
         string startingDate;
         string endDate;
+        mapping (address => bool) Voters;
     }
 
-    mapping(uint => Ballot) ballots;
+    mapping(uint => vote) votesDataBase;
 
-    function newBallot (string _question, ) public onlyRole(MEMBER_ROLE) {
+    function newVoting (string memory _question) public onlyRole(MEMBER_ROLE) {
+        vote storage newVote = votesDataBase[lotteryId.current()];
+        newVote.question = _question;
+        newVote.createdBy = msg.sender;
+        newVote.tokenBalance = 0;
+        newVote.status = open;
+        newVote.countVotes = 0;
+        newVote.outcome = pending;
+        newVote.startingDate = block.timestamp;
+        newVote.endDatev = block.timestamp + 24*60*60;
+    }
+
+    function vote (bool _vote) public onlyRole(MEMBER_ROLE) {
+        
 
     }
 
