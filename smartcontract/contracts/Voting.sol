@@ -55,7 +55,7 @@ contract Voting is DaoMembers {
     mapping(uint => vote) votesDataBase;
 
     function newVoting (string memory _question) public onlyRole(MEMBER_ROLE) {
-        vote storage newVote = votesDataBase[lotteryId.current()];
+        vote storage newVote = votesDataBase[voteId.current()];
         newVote.question = _question;
         newVote.createdBy = msg.sender;
         newVote.tokenBalance = 0;
@@ -67,7 +67,7 @@ contract Voting is DaoMembers {
     }
 
     function vote (bool _vote) public onlyRole(MEMBER_ROLE) {
-        
+        //
 
     }
 
