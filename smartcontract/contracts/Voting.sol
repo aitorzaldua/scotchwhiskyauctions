@@ -45,7 +45,8 @@ contract Voting is DaoMembers {
         address createdBy;
         uint tokenBalance;
         Status status;
-        Counters.Counter countVotes;
+        Counters.Counter countYes;
+        Counters.Counter countNo;
         Outcome outcome;
         string startingDate;
         string endDate;
@@ -59,15 +60,27 @@ contract Voting is DaoMembers {
         newVote.question = _question;
         newVote.createdBy = msg.sender;
         newVote.tokenBalance = 0;
-        newVote.status = open;
+        newVote.status = "open";
         newVote.countVotes = 0;
-        newVote.outcome = pending;
+        newVote.outcome = "pending";
         newVote.startingDate = block.timestamp;
         newVote.endDatev = block.timestamp + 24*60*60;
     }
 
-    function vote (bool _vote) public onlyRole(MEMBER_ROLE) {
-        //
+    function vote (uint _whichQuestionAreYouVotingFor, bool _vote) public onlyRole(MEMBER_ROLE) {
+        vote storage newMemberVote = votesDataBase[_whichQuestionAreYouVotingFor];
+
+        require(newMemberVote.Status = "open", "The Voting is already closed");
+
+
+        newMemberVote.Voters[msg.sender] = true;
+
+        if (_vote) {
+            newMemberVote.countYes(increment());
+        }
+        else {
+            newMemberVote.countNo(increment());
+        }
 
     }
 
