@@ -67,6 +67,7 @@ contract Voting is DaoMembers {
         newVote.endDatev = block.timestamp + 24*60*60;
     }
 
+    //
     function vote (uint _whichQuestionAreYouVotingFor, bool _vote) public onlyRole(MEMBER_ROLE) {
         vote storage newMemberVote = votesDataBase[_whichQuestionAreYouVotingFor];
 
