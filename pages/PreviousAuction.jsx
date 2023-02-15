@@ -3,12 +3,12 @@ import { ethers } from "ethers";
 
 import contractAbi from "./utils/contractAbi.json";
 
-const contractAddress = '0xDf41B601ACe7A0fDFcBeC132f31892Bb3d80B62f';
+const contractAddress = '0xa341b27f38cC658507593f2ECAbA4A15b10234f5';
 
 const loadData = async () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const contract = new ethers.Contract(contractAddress, contractABI, provider)
-  const dataObtained = await contract.getMemos();
+  const provider = new ethers.providers.JsonRpcProvider('https://eth-goerli.g.alchemy.com/v2/lVH3kEFWP68nfURINIQvYAaW1JxDHGEL');
+  const contract = new ethers.Contract(contractAddress, contractAbi, provider)
+  const dataObtained = await contract.getVotingTest();
   alert (dataObtained);
 }
 
